@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { getGif } from "../api/giphy.api";
+import { getGif } from "../api/giphy/giphy.api";
 
 const routes = express();
 
