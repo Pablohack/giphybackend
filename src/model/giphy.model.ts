@@ -1,14 +1,13 @@
 import mongoose from "mongoose";
+import { IGiphy } from "./model.type";
 
 const modelSchema = mongoose.Schema;
 
-interface IGiphy {
-  title: string;
-  url: string;
-}
-
-const GiphyModel = new modelSchema<IGiphy>({
-  title: { required: true },
-  url: { required: true },
+const GiphySchema = new modelSchema<IGiphy>({
+  title: { type: String },
+  url: { type: String },
 });
-export { GiphyModel };
+
+const Giphy = mongoose.model("Gihpy", GiphySchema);
+
+export { Giphy };
