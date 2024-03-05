@@ -1,9 +1,12 @@
-import express from "express";
+import express, { Request, Response } from "express";
+import { getGif } from "../api/giphy/giphy.api";
 
 const routes = express();
 
-routes.get("/", (req, res) => {
-  res.send("esto es una prueba!");
+routes.get("/", async (req: Request, res: Response) => {
+  const { q, limit } = req.query;
+  const response = await getGif({ q: q as string, limit: limit as string });
+  res.json(response);
 });
 
 export { routes };
