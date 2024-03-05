@@ -8,7 +8,6 @@ export const saveGif = async ({ title, url }) => {
     conn.connect();
 
     const newGif = new Giphy({ title, url });
-    console.log(newGif);
 
     return await newGif.save();
   } catch (error) {
