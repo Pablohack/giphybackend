@@ -1,5 +1,5 @@
 export type getGif = {
-  q: string;
+  q?: string;
   limit: string;
   offset?: string;
 };

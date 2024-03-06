@@ -7,9 +7,9 @@ export class ApiRepository<T> implements IApi<T> {
     this.url = url;
   }
 
-  async get<T>(params: Record<string, string>): Promise<T[]> {
+  async get<T>(path: string, params: Record<string, string>): Promise<T> {
     try {
-      const { data } = await axios.get<T[]>(this.url, {
+      const { data } = await axios.get<T>(`${this.url}${path}`, {
         params: { ...params },
       });
       return data;
