@@ -6,13 +6,6 @@ import { uploadGif } from "../api/db/db.api";
 
 const routes = express();
 
-// const storage = multer.diskStorage({
-//   destination: "./uploads",
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-
 const storage = multer.memoryStorage();
 
 const upload = multer({ storage });
@@ -35,6 +28,7 @@ routes.get("/trending", async (req: Request, res: Response) => {
 routes.get("/search", async (req: Request, res: Response) => {
   try {
     const { q, limit, offset } = req.query;
+
     const response = await getGifSearch({
       q: q as string,
       limit: limit as string,
